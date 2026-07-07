@@ -12,6 +12,11 @@ Launch and open the ClickGUI with Right Shift.
 # Commands
 Prefix is .
 
+# Gui
+![2026-07-07_17.25.14.png](run/screenshots/2026-07-07_17.25.14.png)
+# Hud
+![2026-07-07_17.25.22.png](run/screenshots/2026-07-07_17.25.22.png)
+
 # Building
 ./gradlew build
 Output: build/libs/favelayaw-"version".jar.
