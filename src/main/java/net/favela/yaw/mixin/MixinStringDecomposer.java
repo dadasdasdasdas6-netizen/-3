@@ -8,16 +8,10 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 @Mixin(StringDecomposer.class)
 public class MixinStringDecomposer {
-
-    @Unique private static String yaw$cachedName;
-    @Unique private static Pattern yaw$namePattern;
 
     @ModifyVariable(
             method = "iterateFormatted(Ljava/lang/String;ILnet/minecraft/network/chat/Style;Lnet/minecraft/network/chat/Style;Lnet/minecraft/util/FormattedCharSink;)Z",
@@ -31,17 +25,12 @@ public class MixinStringDecomposer {
         if (streamer == null || !streamer.isEnabled()) return string;
 
         String real = yaw$realName();
-        if (real == null || real.isEmpty()) return string;
+        if (real == null || real.isEmpty() || string.indexOf(real) < 0) return string;
 
         String fake = streamer.name.get();
         if (fake == null || fake.isEmpty() || fake.equals(real)) return string;
 
-        if (yaw$namePattern == null || !real.equals(yaw$cachedName)) {
-            yaw$cachedName = real;
-            yaw$namePattern = Pattern.compile("\\b" + Pattern.quote(real) + "\\b");
-        }
-
-        return yaw$namePattern.matcher(string).replaceAll(Matcher.quoteReplacement(fake));
+        return string.replace(real, fake);
     }
 
     @Unique

@@ -1,11 +1,20 @@
 package net.favela.yaw.impl.setting;
 
-public class EnumConverter {
+public final class EnumConverter {
+
+    private EnumConverter() {}
 
     public static String getProperName(Enum<?> value) {
         if (value == null) return "";
-        String name = value.name().toLowerCase().replace('_', ' ');
-        StringBuilder sb = new StringBuilder();
+        if (value instanceof Displayable displayable) {
+            return displayable.getDisplayName();
+        }
+        return autoFormat(value.name());
+    }
+
+    private static String autoFormat(String raw) {
+        String name = raw.toLowerCase().replace('_', ' ');
+        StringBuilder sb = new StringBuilder(name.length());
         boolean cap = true;
         for (char c : name.toCharArray()) {
             if (cap && Character.isLetter(c)) {

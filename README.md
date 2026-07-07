@@ -7,8 +7,8 @@ A modern Minecraft client base for latest versions.
      
 ## Screenshots
 <details>
-  <summary> UI </summary>
-  ![UI](https://github.com/maybelilim/favelayaw/blob/master/screenshots/gui.png?raw=true)
+  <summary> GUI </summary>
+  ![GUI](https://github.com/maybelilim/favelayaw/blob/master/screenshots/gui.png?raw=true)
 </details>
 <details>
   <summary> HUD </summary>
