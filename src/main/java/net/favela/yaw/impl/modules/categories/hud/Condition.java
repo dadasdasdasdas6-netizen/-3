@@ -12,7 +12,7 @@ import net.minecraft.world.item.Items;
 
 import java.awt.Color;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 @AutoService(Module.class)
 public class Condition extends Hud {

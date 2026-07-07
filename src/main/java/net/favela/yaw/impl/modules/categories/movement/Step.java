@@ -9,7 +9,7 @@ import net.minecraft.network.protocol.game.ServerboundMovePlayerPacket;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 @AutoService(Module.class)
 public class Step extends Module {

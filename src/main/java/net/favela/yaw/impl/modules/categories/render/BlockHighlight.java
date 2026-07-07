@@ -19,7 +19,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 @AutoService(Module.class)
 public class BlockHighlight extends Module {

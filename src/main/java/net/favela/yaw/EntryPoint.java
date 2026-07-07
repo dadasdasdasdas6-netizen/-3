@@ -3,19 +3,22 @@ package net.favela.yaw;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.metadata.ModMetadata;
-import net.favela.yaw.api.loader.Loader;
+import net.favela.yaw.impl.management.Manager;
 
-/**
- * @see Loader
- */
 public class EntryPoint implements ClientModInitializer {
 
-    /** The mod's technical ID: namespace for Identifier, the name of the logger, and the search key in the loader. */
     public static final String MOD_ID = "favelayaw";
+
+    private static String name;
+    private static String version;
 
     @Override
     public void onInitializeClient() {
-        Loader.load();
+        ModMetadata meta = metadata();
+        name = meta.getName();
+        version = meta.getVersion().getFriendlyString();
+
+        Manager.init();
     }
 
     private static ModMetadata metadata() {
@@ -25,13 +28,11 @@ public class EntryPoint implements ClientModInitializer {
                 .getMetadata();
     }
 
-    /** Display name from fabric.mod.json (← gradle.properties: mod_name). */
     public static String name() {
-        return metadata().getName();
+        return name;
     }
 
-    /** Version from fabric.mod.json (← gradle.properties: mod_version). */
     public static String version() {
-        return metadata().getVersion().getFriendlyString();
+        return version;
     }
 }

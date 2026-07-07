@@ -6,7 +6,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.inventory.ContainerInput;
 import net.minecraft.world.item.Items;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 @AutoService(Module.class)
 public class AutoTotem extends Module {

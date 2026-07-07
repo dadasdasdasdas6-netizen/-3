@@ -13,7 +13,7 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 
 import java.awt.Color;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 @AutoService(Module.class)
 public class Packets extends Hud {

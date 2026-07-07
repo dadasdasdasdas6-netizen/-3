@@ -13,7 +13,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.UUID;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 @AutoService(Module.class)
 public class FakePlayer extends Module {

@@ -9,7 +9,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.awt.Color;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 public class RenderUtil {
 

@@ -1,4 +1,4 @@
-package net.favela.yaw.api.wrapper;
+package net.favela.yaw.impl.util.wrapper;
 
 import net.minecraft.client.Minecraft;
 

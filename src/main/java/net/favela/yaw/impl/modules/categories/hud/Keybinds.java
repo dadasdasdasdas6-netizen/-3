@@ -1,11 +1,11 @@
 package net.favela.yaw.impl.modules.categories.hud;
 
 import com.google.auto.service.AutoService;
-import net.favela.yaw.api.wrapper.Wrapper;
 import net.favela.yaw.impl.gui.hud.Hud;
 import net.favela.yaw.impl.management.Manager;
 import net.favela.yaw.impl.modules.Module;
 import net.favela.yaw.impl.setting.settings.ColorSetting;
+import net.favela.yaw.impl.util.wrapper.Wrapper;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 
 import java.awt.*;

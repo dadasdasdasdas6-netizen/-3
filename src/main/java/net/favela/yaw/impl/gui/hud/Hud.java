@@ -12,7 +12,7 @@ import net.minecraft.client.gui.screens.ChatScreen;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 public abstract class Hud extends Module {
 

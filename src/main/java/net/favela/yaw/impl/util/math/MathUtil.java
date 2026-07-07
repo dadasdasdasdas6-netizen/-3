@@ -1,6 +1,6 @@
 package net.favela.yaw.impl.util.math;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 public class MathUtil {
 

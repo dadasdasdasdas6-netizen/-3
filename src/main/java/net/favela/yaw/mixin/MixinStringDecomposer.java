@@ -8,28 +8,45 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 @Mixin(StringDecomposer.class)
 public class MixinStringDecomposer {
-    @Unique
-    private static String CACHED_NAME;
+
+    @Unique private static String yaw$cachedName;
+    @Unique private static Pattern yaw$namePattern;
 
     @ModifyVariable(
             method = "iterateFormatted(Ljava/lang/String;ILnet/minecraft/network/chat/Style;Lnet/minecraft/network/chat/Style;Lnet/minecraft/util/FormattedCharSink;)Z",
             at = @At("HEAD"),
             argsOnly = true,
             name = "string")
-
-    private static String replaceText(String string) {
+    private static String yaw$replaceText(String string) {
         if (Manager.MODULE == null || string == null || string.isEmpty()) return string;
+
         Streamer streamer = Manager.MODULE.get(Streamer.class);
         if (streamer == null || !streamer.isEnabled()) return string;
-        if (CACHED_NAME == null && MC != null) {
-            CACHED_NAME = MC.getUser().getName();
+
+        String real = yaw$realName();
+        if (real == null || real.isEmpty()) return string;
+
+        String fake = streamer.name.get();
+        if (fake == null || fake.isEmpty() || fake.equals(real)) return string;
+
+        if (yaw$namePattern == null || !real.equals(yaw$cachedName)) {
+            yaw$cachedName = real;
+            yaw$namePattern = Pattern.compile("\\b" + Pattern.quote(real) + "\\b");
         }
 
-        if (CACHED_NAME == null || CACHED_NAME.isEmpty()) return string;
-        return string.replace(CACHED_NAME, streamer.name.get());
+        return yaw$namePattern.matcher(string).replaceAll(Matcher.quoteReplacement(fake));
+    }
+
+    @Unique
+    private static String yaw$realName() {
+        if (MC == null || MC.getUser() == null) return null;
+        return MC.getUser().getName();
     }
 }

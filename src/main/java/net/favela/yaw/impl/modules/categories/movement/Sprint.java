@@ -4,7 +4,7 @@ import com.google.auto.service.AutoService;
 import net.favela.yaw.impl.modules.Module;
 import net.minecraft.world.effect.MobEffects;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 @AutoService(Module.class)
 public class Sprint extends Module {

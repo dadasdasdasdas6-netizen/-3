@@ -12,7 +12,7 @@ import net.minecraft.commands.SharedSuggestionProvider;
 
 import java.util.List;
 
-import static net.favela.yaw.api.wrapper.Wrapper.MC;
+import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 
 public class Command {
 
