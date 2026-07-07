@@ -1,0 +1,24 @@
+{
+	"schemaVersion": 1,
+	"id": "${id}",
+	"version": "${version}",
+	"name": "${name}",
+	"description": "A 26.2 Minecraft cheat client.",
+	"authors": [ "maybelilim" ],
+	"contact": {
+		"sources": "https://github.com/maybelilim/favelayaw"
+	},
+	"license": "MIT",
+	"icon": "assets/favelayaw/textures/client/icon/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [ "net.favela.yaw.EntryPoint" ]
+	},
+	"mixins": [ "favelayaw.mixins.json" ],
+	"depends": {
+		"fabricloader": ">=${loader_version}",
+		"minecraft": "~${minecraft}",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
