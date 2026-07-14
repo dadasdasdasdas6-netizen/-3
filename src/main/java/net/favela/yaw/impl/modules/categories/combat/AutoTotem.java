@@ -12,7 +12,7 @@ import static net.favela.yaw.impl.util.wrapper.Wrapper.MC;
 public class AutoTotem extends Module {
 
     public AutoTotem() {
-        super("AutoTotem", "Automatically keeps a totem of undying in offhand", Category.COMBAT);
+        super("AutoTotem", "?", Category.COMBAT);
     }
 
     @Override
